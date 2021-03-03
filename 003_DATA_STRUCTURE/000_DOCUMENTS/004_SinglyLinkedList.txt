@@ -1,0 +1,126 @@
+1. 정의 및 특징
+	- 동적 메모리 할당을 이용해 노드들을 하나의 방향으로 연결되어 있으며, 맨 앞의 노드를 head, 맨 뒤의 노드를 tail 이라고 하며 tail 노드의 링크 필드 값이 NULL인 연결리스트이다.
+	- 순차 자료구조의 문제점의 해결
+		= 삽입, 삭제 연산시 순서에 맞는 물리 주소를 유지하기 위한 이동에 대한 OverHead가 발생
+		= 배열을 이용한 구현시, 메모리 사용의 비효율 --> 사용하지 않는 공간도 순서를 위해서 할당 시켜야함.
+			*이러한 문제점을 해결하기 위해서 연결 자료구조가 등장
+			
+	- 노드를 어떻게 정의할 것인가 -> 자기 참조 구조체 이용
+	- 노드를 어떻게 생성할 것인가 -> malloc()으로 동적 메모리 생성
+	- 노드를 어떻게 삭제할 것인가 -> free()로 동적 메모리 해제
+	
+2. 추상 자료형(ADT)
+	- Object
+		ArrayList
+			<i∈Index, value∈arr> 쌍들의 집합. index는 순서를 나타내는 정수의 유한집합, Element는 자료형이 같은 요소의 집합
+			<maxIndex∈size> 집합의 최대 크기
+	- Function
+		arr∈Array; i∈Index; x, value∈arr, size∈Integer에 대해 아래와 같은 연산이 정의 된다.
+		arr는 0개 이상의 요소를 갖는 배열, item 은 배열에 저장된 요소, size은 배열의 최대 크기
+		
+	- 추상 자료형 정의
+		= bool IsEmpty(ArrayList* list) ::= 배열이 비어있는지 체크. 비어있으면 false 반환. 비어있지 않으면 
+			if(list->size > 0)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			
+		= IsFull(ArrayList* list) ::= 배열이 가득 차있는지 체크
+			if(list->size > MAX_SIZE)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		
+		= PrintList(ArrayList* list) ::= 배열의 요소들을 출력
+		= GetValue(ArrayList* list, int pos) ::= pos 에 위치한 값을 출력
+		= GetSize(ArrayList* list) ::= 데이터가 존재하는 배열의 크기를 출력
+		= ListValueMove(ArrayList* list, int pos, IncDec incDec) ::= 배열에 추가, 삭제시 기존의 데이터를 앞 또는 뒤로 옮김
+		= InsertFirst(ArrayList * list, int value) ::= 배열의 제일 처음에 데이터를 추가
+		= Insert(ArrayList* list, int pos, int value) ::= pos 위치에 데이터를 추가
+		= InsertLast(ArrayList* list, int value) ::= 배열의 마지막에 데이터를 추가
+		= Delete(ArrayList* list, int pos) ::= 배열의 pos 에 데이터를 삭제
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 배열의 맨 앞에 삽입/삭제하는 경우 : Insert/Remove(n + 1) = Big-O Notation = O(n + 1)
+		= 배열의 맨 뒤에 삽입/삭제하는 경우 : Insert/Remove(1) = Big-O Notation = O(1)
+		= 배열의 중간에 삽입/삭제하는 경우 : Insert/Remove(n - pos) = Big-O Notation = O(n - pos)
+		
+	- 탐색
+		= Retrieve(1) = Big-O Notation = O(1)
+		
+4. 장점
+	- 배열과는 다르게 맨처음 선언시 데이터의 길이를 몰라도 사용이 가능하고, 노드의 추가,삽입,삭제가 용이하다.
+		= 삽입 또는 삭제도 해당 위치에 노드를 탐색을 먼저 해야하므로 시간복잡도는 O(n)에 해당함. 노드가 맨 앞부분(head)에 추가될때는 O(1)로 빠름.
+
+5. 단점
+	- 탐색에서 속도가 느리다
+
+
+
+
+https://medium.com/quantum-ant/c%EC%96%B8%EC%96%B4%EB%A1%9C-%EC%89%BD%EA%B2%8C-%ED%92%80%EC%96%B4%EC%93%B4-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-06-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8-1-f4b62b904c00
+https://m.blog.naver.com/PostView.nhn?blogId=dunlod&logNo=220236889675&proxyReferer=https:%2F%2Fwww.google.com%2F
+https://ehrn35.tistory.com/7
+https://richong.tistory.com/65
+https://claude-u.tistory.com/80
+https://limkydev.tistory.com/128
+https://comdolidol-i.tistory.com/48
+https://letitgo01.tistory.com/65
+https://euns2ol.tistory.com/3
+https://ppomelo.tistory.com/36
+https://velog.io/@mrnglory/data-structure-02-1
+https://jow1025.tistory.com/203
+http://ivis.kr/images/4/43/06.%EC%97%B0%EA%B2%B0%EB%A6%AC%EC%8A%A4%ED%8A%B81%282019%29.pdf
+https://robodream.tistory.com/171
+https://atoz-develop.tistory.com/entry/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EB%8B%A8%EC%88%9C-%EC%97%B0%EA%B2%B0-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EC%A0%95%EB%A6%AC-%EB%B0%8F-%EC%97%B0%EC%8A%B5%EB%AC%B8%EC%A0%9C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
