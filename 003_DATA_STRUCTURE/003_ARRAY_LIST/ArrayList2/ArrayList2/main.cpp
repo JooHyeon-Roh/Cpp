@@ -1,55 +1,24 @@
 #include <cstdio>
 #include "ArrayList.h"
 
-int main(void)
+int main()
 {
-	/*** ArrayList의 생성 및 초기화 ***/
-	ArrayList list;
-	int data;
-	Init(&list);
+	ArrayList* arrayList = new ArrayList;
+	Init(arrayList);
 
-	/*** 5개의 데이터 저장 ***/
-	Insert(&list, 11);
-	Insert(&list, 11);
-	Insert(&list, 22);
-	Insert(&list, 22);
-	Insert(&list, 33);
+	Insert(arrayList, 1, 1);
+	Insert(arrayList, 2, 2);
+	Insert(arrayList, 3, 3);
 
-	/*** 저장된 데이터의 전체 출력 ***/
-	printf("현재 데이터의 수: %d \n", Count(&list));
+	Delete(arrayList, 2);
 
-	if (First(&list, data))    // 첫 번째 데이터 조회
-	{
-		printf("%d ", data);
+	//총 데이터 수 
+	int count = Count(arrayList);
+	printf("count = [%d]\n", count);
 
-		while (Next(&list, data))    // 두 번째 이후의 데이터 조회
-			printf("%d ", data);
-	}
-	printf("\n\n");
+	// 데이터 출력
+	PrintData(arrayList);
 
-	/*** 숫자 22을 탐색하여 모두 삭제 ***/
-	if (First(&list, data))
-	{
-		if (data == 22)
-			Remove(&list);
-
-		while (Next(&list, data))
-		{
-			if (data == 22)
-				Remove(&list);
-		}
-	}
-
-	/*** 삭제 후 저장된 데이터 전체 출력 ***/
-	printf("현재 데이터의 수: %d \n", Count(&list));
-
-	if (First(&list, data))
-	{
-		printf("%d ", data);
-
-		while (Next(&list, data))
-			printf("%d ", data);
-	}
-	printf("\n\n");
+	delete arrayList;
 	return 0;
 }

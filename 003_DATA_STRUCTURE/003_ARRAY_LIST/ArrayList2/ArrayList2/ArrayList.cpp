@@ -1,60 +1,77 @@
-#include <cstdio>
 #include "ArrayList.h"
+#include <cstdio>
 
 void Init(ArrayList* plist)
 {
 	plist->dataSize = 0;
-	plist->curPos = -1;
-	return;
 }
 
-bool Insert(ArrayList* plist, int data)
+bool Insert(ArrayList* plist, int pos, int data)
 {
+	int realPos = pos - 1;
+
 	if (plist->dataSize > MAX_SIZE)
 	{
-		printf("저장이 불가능합니다.");
+		printf("데이터가 가득차 추가할수 없습니다.\n");
 		return false;
 	}
 
-	plist->arr[plist->dataSize] = data;
-	(plist->dataSize)++;
-	return false;
-}
+	if (plist->dataSize > 0)
+	{
+		if (plist->dataSize >= pos)
+		{
+			for (int i = plist->dataSize; i > pos; --i)
+			{
+				plist->arr[i] = plist->arr[i - 1];
+			}
+		}
+	}
 
-bool First(ArrayList* plist, int& pdata)
-{
-	if (plist->dataSize == 0)
-		return false;
-
-	(plist->curPos) = 0;
-	pdata = plist->arr[0];
+	plist->arr[realPos] = data;
+	++(plist->dataSize);
 
 	return true;
 }
 
-bool Next(ArrayList* plist, int& pdata)
+bool Delete(ArrayList* plist, int pos)
 {
-	if (plist->curPos >= (plist->dataSize) - 1)
-		return false;
+	int realPos = pos - 1;
 
-	(plist->curPos)++;
-	pdata = plist->arr[plist->curPos];
+	if (plist->dataSize < 1)
+	{
+		printf("데이터가 없습니다.\n");
+		return false;
+	}
+
+	if (plist->dataSize > pos)
+	{
+		for (int i = pos; i < plist->dataSize; ++i)
+		{
+			plist->arr[i - 1] = plist->arr[i];
+		}
+	}
+
+	plist->arr[plist->dataSize] = 0;
+	--(plist->dataSize);
+
 	return true;
 }
 
-int Remove(ArrayList* plist)
+void PrintData(ArrayList* plist)
 {
-	int rpos = plist->curPos;
-	int num = plist->dataSize;
-	int i;
-	int rdata = plist->arr[rpos];
+	if (plist->dataSize > 0)
+	{
+		for (int i = 0; i < plist->dataSize; ++i)
+		{
+			printf("[%d] = [%d]\n", i + 1, plist->arr[i]);
+		}
+	}
+	else
+	{
+		printf("저장된 데이터가 없습니다.\n");
+	}
 
-	for (i = rpos; i < num - 1; i++)
-		plist->arr[i] = plist->arr[i + 1];
-
-	(plist->dataSize)--;
-	(plist->curPos)--;
-	return rdata;
+	return;
 }
 
 int Count(ArrayList* plist)

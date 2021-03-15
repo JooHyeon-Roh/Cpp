@@ -8,17 +8,14 @@ typedef struct _ArrayList
 {
 	int arr[MAX_SIZE] = { 0, };
 	int dataSize;
-	int curPos;
 } ArrayList;
 
-
 void Init(ArrayList* plist);
-bool Insert(ArrayList* plist, int data);
+bool Insert(ArrayList* plist, int pos, int data);
 
-bool First(ArrayList* plist, int& pdata);
-bool Next(ArrayList* plist, int& pdata);
+bool Delete(ArrayList* plist, int pos);
 
-int Remove(ArrayList* plist);
+void PrintData(ArrayList* plist);
 int Count(ArrayList* plist);
 
 #endif
