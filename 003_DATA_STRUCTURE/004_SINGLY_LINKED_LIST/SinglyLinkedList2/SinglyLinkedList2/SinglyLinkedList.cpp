@@ -56,7 +56,7 @@ bool Delete(NodeInfo* pNodeInfo, int data)
 	}
 	else
 	{
-		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
+		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
 		return false;
 	}
 
@@ -83,7 +83,7 @@ void PrintData(NodeInfo* pNodeInfo)
 	}
 	else
 	{
-		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
+		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
 	}
 
 	return;

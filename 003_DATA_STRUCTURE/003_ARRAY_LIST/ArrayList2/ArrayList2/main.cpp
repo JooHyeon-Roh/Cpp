@@ -12,11 +12,11 @@ int main()
 
 	Delete(arrayList, 2);
 
-	//ÃÑ µ¥ÀÌÅÍ ¼ö 
+	//ì´ ë°ì´í„° ìˆ˜ 
 	int count = Count(arrayList);
 	printf("count = [%d]\n", count);
 
-	// µ¥ÀÌÅÍ Ãâ·Â
+	// ë°ì´í„° ì¶œë ¥
 	PrintData(arrayList);
 
 	delete arrayList;

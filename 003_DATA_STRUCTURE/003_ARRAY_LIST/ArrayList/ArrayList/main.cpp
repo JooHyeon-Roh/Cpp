@@ -17,31 +17,31 @@ enum class IncDec{
 
 bool IsEmpty(ArrayList* list)
 {
-	printf("[IsEmpty] ¼øÂ÷ ¸®½ºÆ®°¡ ºñ¾îÀÖ´ÂÁö Ã¼Å©ÇÕ´Ï´Ù.\n");
+	printf("[IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆëŠ”ì§€ ì²´í¬í•©ë‹ˆë‹¤.\n");
 
 	if (list->size > 0)
 	{
-		printf("[IsEmpty] ¼øÂ÷ ¸®½ºÆ®°¡ ºñ¾îÀÖÁö ¾Ê½À´Ï´Ù.\n");
+		printf("[IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
-	printf("[IsEmpty] ¼øÂ÷ ¸®½ºÆ®°¡ ºñ¾îÀÖ½À´Ï´Ù.\n");
+	printf("[IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.\n");
 	return true;
 }
 
 bool IsFull(ArrayList* list, IncDec incDec)
 {
-	printf("[IsFull] ¼øÂ÷ ¸®½ºÆ®¿¡ Å©±â¸¦ Ã¼Å©ÇÕ´Ï´Ù.\n");
+	printf("[IsFull] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì— í¬ê¸°ë¥¼ ì²´í¬í•©ë‹ˆë‹¤.\n");
 
 	if (incDec == IncDec::Inc)
 	{
-		printf("[IsFull] ¼øÂ÷ ¸®½ºÆ®¿¡ Ãß°¡¸¦ ½ÇÇàÇÏ¹Ç·Î Å©±â¸¦ Ãß°¡ÇÏ¿© Ã¼Å©ÇÕ´Ï´Ù.\n");
+		printf("[IsFull] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€ë¥¼ ì‹¤í–‰í•˜ë¯€ë¡œ í¬ê¸°ë¥¼ ì¶”ê°€í•˜ì—¬ ì²´í¬í•©ë‹ˆë‹¤.\n");
 		if (list->size + 1 > MAX_SIZE)
 			return false;
 	}
 	else if (incDec == IncDec::Dec)
 	{
-		printf("[IsFull] ¼øÂ÷ ¸®½ºÆ®¿¡ »èÁ¦¸¦ ½ÇÇàÇÏ¹Ç·Î Å©±â¸¦ »èÁ¦ÇÏ¿© Ã¼Å©ÇÕ´Ï´Ù.\n");
+		printf("[IsFull] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì— ì‚­ì œë¥¼ ì‹¤í–‰í•˜ë¯€ë¡œ í¬ê¸°ë¥¼ ì‚­ì œí•˜ì—¬ ì²´í¬í•©ë‹ˆë‹¤.\n");
 		if (list->size - 1 > MAX_SIZE)
 			return false;
 	}
@@ -52,21 +52,21 @@ bool IsFull(ArrayList* list, IncDec incDec)
 	}
 	else
 	{
-		printf("[IsFull] ¼øÂ÷ ¸®½ºÆ®ÀÇ Ã¼Å©¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.\n");
+		printf("[IsFull] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ ì²´í¬ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
-	printf("[IsFull] ¼øÂ÷ ¸®½ºÆ®°¡ °¡µæÂ÷ ÀÖÁö ¾Ê½À´Ï´Ù.\n");
+	printf("[IsFull] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ê°€ë“ì°¨ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤.\n");
 	return true;
 }
 
 bool PrintList(ArrayList* list)
 {
-	printf("[PrintList] ¼øÂ÷ ¸®½ºÆ®¸¦ Ãâ·ÂÇÕ´Ï´Ù.\n");
+	printf("[PrintList] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ë¥¼ ì¶œë ¥í•©ë‹ˆë‹¤.\n");
 
 	if (IsEmpty(list))
 	{
-		printf("[PrintList] -> [IsEmpty] ¼øÂ÷ ¸®½ºÆ®°¡ ºñ¾î ÀÖ¾î µ¥ÀÌÅÍ¸¦ Ãâ·Â ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+		printf("[PrintList] -> [IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆì–´ ë°ì´í„°ë¥¼ ì¶œë ¥ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
@@ -82,7 +82,7 @@ int GetValue(ArrayList* list, int pos)
 {
 	if (list->size < pos)
 	{
-		printf("[GetValue] ¼øÂ÷ ¸®½ºÆ®ÀÇ Å©±âº¸´Ù Å« À§Ä¡ÀÇ µ¥ÀÌÅÍ¸¦ ¿äÃ»ÇÏ¿´½À´Ï´Ù. size = [%d], pos = [%d]\n", list->size, pos);
+		printf("[GetValue] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸°ë³´ë‹¤ í° ìœ„ì¹˜ì˜ ë°ì´í„°ë¥¼ ìš”ì²­í•˜ì˜€ìŠµë‹ˆë‹¤. size = [%d], pos = [%d]\n", list->size, pos);
 		return -1;
 	}
 
@@ -114,7 +114,7 @@ bool ListValueMove(ArrayList* list, int pos, IncDec incDec)
 	}
 	else
 	{
-		printf("[ListValueMove] ¼øÂ÷ ¸®½ºÆ®ÀÇ Ãß°¡, »èÁ¦ ±¸ºĞÀ» Àß¸øÇÏ¿´½À´Ï´Ù.\n");
+		printf("[ListValueMove] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ ì¶”ê°€, ì‚­ì œ êµ¬ë¶„ì„ ì˜ëª»í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
@@ -135,11 +135,11 @@ bool InsertFirst(ArrayList * list, int value)
 
 		list->arr[firstNum] = value;
 		list->size = list->size + 1;
-		printf("[InsertFirst] ¼øÂ÷ ¸®½ºÆ® °¡Àå Ã³À½¿¡ µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù.\n");
+		printf("[InsertFirst] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ ê°€ì¥ ì²˜ìŒì— ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
 		return true;
 	}
 
-	printf("[InsertFirst] ¼øÂ÷ ¸®½ºÆ®ÀÇ Å©±â¸¦ ÃÊ°úÇÏ¿© °ªÀ» ÀÔ·Â ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+	printf("[InsertFirst] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸°ë¥¼ ì´ˆê³¼í•˜ì—¬ ê°’ì„ ì…ë ¥ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 	return false;
 }
 
@@ -150,7 +150,7 @@ bool Insert(ArrayList* list, int pos, int value)
 	{
 		if (list->size < pos)
 		{
-			printf("[InsertFirst] ¼øÂ÷·Î µ¥ÀÌÅÍ¸¦ ÀÔ·ÂÇÏÁö ¾Ê¾Æ µ¥ÀÌÅÍ¸¦ ÀÔ·Â ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+			printf("[InsertFirst] ìˆœì°¨ë¡œ ë°ì´í„°ë¥¼ ì…ë ¥í•˜ì§€ ì•Šì•„ ë°ì´í„°ë¥¼ ì…ë ¥ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 			return false;
 		}
 		else if(list->size > pos)
@@ -161,11 +161,11 @@ bool Insert(ArrayList* list, int pos, int value)
 
 		list->arr[pos - 1] = value;
 		list->size = list->size + 1;
-		printf("[InsertFirst] ¼øÂ÷ ¸®½ºÆ® [%d]¿¡ µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù.\n", pos);
+		printf("[InsertFirst] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ [%d]ì— ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.\n", pos);
 		return true;
 	}
 
-	printf("[InsertFirst] ¼øÂ÷ ¸®½ºÆ®ÀÇ Å©±â¸¦ ÃÊ°úÇÏ¿© °ªÀ» ÀÔ·Â ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+	printf("[InsertFirst] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸°ë¥¼ ì´ˆê³¼í•˜ì—¬ ê°’ì„ ì…ë ¥ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 	return false;
 }
 
@@ -177,21 +177,21 @@ bool InsertLast(ArrayList* list, int value)
 	{
 		list->arr[lastNum] = value;
 		list->size = lastNum + 1;
-		printf("[InsertLast] ¼øÂ÷ ¸®½ºÆ® °¡Àå ¸¶Áö¸·¿¡ µ¥ÀÌÅÍ¸¦ Ãß°¡ÇÏ¿´½À´Ï´Ù.\n");
+		printf("[InsertLast] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ ê°€ì¥ ë§ˆì§€ë§‰ì— ë°ì´í„°ë¥¼ ì¶”ê°€í•˜ì˜€ìŠµë‹ˆë‹¤.\n");
 		return true;
 	}
 
-	printf("[InsertLast] ¼øÂ÷ ¸®½ºÆ®ÀÇ Å©±â¸¦ ÃÊ°úÇÏ¿© °ªÀ» ÀÔ·Â ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+	printf("[InsertLast] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ì˜ í¬ê¸°ë¥¼ ì´ˆê³¼í•˜ì—¬ ê°’ì„ ì…ë ¥ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 	return false;
 }
 
 bool Delete(ArrayList* list, int pos)
 {
-	printf("[Remove] -> [IsEmpty] ¼øÂ÷ ¸®½ºÆ® [%d]ÀÇ µ¥ÀÌÅÍ¸¦ »èÁ¦ÇÕ´Ï´Ù.\n", pos);
+	printf("[Remove] -> [IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ [%d]ì˜ ë°ì´í„°ë¥¼ ì‚­ì œí•©ë‹ˆë‹¤.\n", pos);
 
 	if (IsEmpty(list))
 	{
-		printf("[Remove] -> [IsEmpty] ¼øÂ÷ ¸®½ºÆ®°¡ ºñ¾î ÀÖ¾î µ¥ÀÌÅÍ¸¦ »èÁ¦ ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+		printf("[Remove] -> [IsEmpty] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ ìˆì–´ ë°ì´í„°ë¥¼ ì‚­ì œ í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 	
@@ -216,7 +216,7 @@ bool Delete(ArrayList* list, int pos)
 
 void Clear(ArrayList* list)
 {
-	printf("[Clear] ¼øÂ÷ ¸®½ºÆ®¸¦ ÃÊ±âÈ­ ÇÕ´Ï´Ù.\n");
+	printf("[Clear] ìˆœì°¨ ë¦¬ìŠ¤íŠ¸ë¥¼ ì´ˆê¸°í™” í•©ë‹ˆë‹¤.\n");
 	for (int i = 0; i < list->size; ++i)
 	{
 		list->arr[i] = 0;

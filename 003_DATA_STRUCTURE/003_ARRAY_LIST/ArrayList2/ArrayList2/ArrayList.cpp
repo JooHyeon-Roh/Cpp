@@ -12,7 +12,7 @@ bool Insert(ArrayList* plist, int pos, int data)
 
 	if (plist->dataSize > MAX_SIZE)
 	{
-		printf("µ¥ÀÌÅÍ°¡ °¡µæÂ÷ Ãß°¡ÇÒ¼ö ¾ø½À´Ï´Ù.\n");
+		printf("ë°ì´í„°ê°€ ê°€ë“ì°¨ ì¶”ê°€í• ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
@@ -39,7 +39,7 @@ bool Delete(ArrayList* plist, int pos)
 
 	if (plist->dataSize < 1)
 	{
-		printf("µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 		return false;
 	}
 
@@ -68,7 +68,7 @@ void PrintData(ArrayList* plist)
 	}
 	else
 	{
-		printf("ÀúÀåµÈ µ¥ÀÌÅÍ°¡ ¾ø½À´Ï´Ù.\n");
+		printf("ì €ìž¥ëœ ë°ì´í„°ê°€ ì—†ìŠµë‹ˆë‹¤.\n");
 	}
 
 	return;
