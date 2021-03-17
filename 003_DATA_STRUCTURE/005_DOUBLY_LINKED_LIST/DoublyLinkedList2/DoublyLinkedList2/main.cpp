@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <stdlib.h>
-#include "SinglyLinkedList.h"
+#include "DoublyLinkedList.h"
 
 int main()
 {
@@ -12,6 +12,7 @@ int main()
 		Insert(list, 1);
 		Insert(list, 2);
 		Insert(list, 3);
+		Insert(list, 4);
 
 		Delete(list, 2);
 

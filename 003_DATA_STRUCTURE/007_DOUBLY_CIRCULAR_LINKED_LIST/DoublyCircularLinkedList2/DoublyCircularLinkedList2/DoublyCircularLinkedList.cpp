@@ -1,4 +1,4 @@
-#include "SinglyLinkedList.h"
+#include "DoublyCircularLinkedList.h"
 #include <cstdio>
 #include <stdlib.h>
 
@@ -6,6 +6,7 @@ void Init(List* pList)
 {
 	pList->head = (Node*)malloc(sizeof(Node));
 	pList->head->next = nullptr;
+	pList->head->prev = nullptr;
 	pList->dataSize = 0;
 	return;
 }
@@ -24,11 +25,31 @@ bool Insert(List* pList, int data)
 		}
 
 		pNewNode->next = pNode->next;
+		pNewNode->prev = pNode;
+		if (pNewNode->next != nullptr)
+		{
+			pNewNode->next->prev = pNode;
+		}
 		pNode->next = pNewNode;
 	}
 	else
 	{
 		pList->head->data = data;
+	}
+
+	if (pList->dataSize > 1)
+	{
+		Node* pNode = pList->head;
+		for (int i = 0; i < pList->dataSize; ++i)
+		{
+			pNode = pNode->next;
+			if (i + 1 == pList->dataSize)
+			{
+				pNode->next = pList->head;
+				pList->head->prev = pNode;
+			}
+
+		}
 	}
 
 	++(pList->dataSize);
@@ -48,6 +69,7 @@ bool Delete(List* pList, int data)
 			{
 				Node* pNext = pNode->next;
 				pNode->next = pNode->next->next;
+				pNode->next->prev = pNode;
 				free(pNext);
 				break;
 			}
@@ -56,7 +78,7 @@ bool Delete(List* pList, int data)
 	}
 	else
 	{
-		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
+		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
 		return false;
 	}
 
@@ -83,7 +105,7 @@ void PrintData(List* pList)
 	}
 	else
 	{
-		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
+		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
 	}
 
 	return;

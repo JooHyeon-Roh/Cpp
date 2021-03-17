@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <stdlib.h>
-#include "SinglyLinkedList.h"
+#include "DoublyCircularLinkedList.h"
 
 int main()
 {
@@ -10,10 +10,11 @@ int main()
 		Init(list);
 
 		Insert(list, 1);
-		Insert(list, 2);
-		Insert(list, 3);
+		//Insert(list, 2);
+		//Insert(list, 3);
+		//Insert(list, 4);
 
-		Delete(list, 2);
+		//Delete(list, 2);
 
 		Count(list);
 

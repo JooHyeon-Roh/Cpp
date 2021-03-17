@@ -1,4 +1,4 @@
-#include "SinglyLinkedList.h"
+#include "CircularLinkedList.h"
 #include <cstdio>
 #include <stdlib.h>
 
@@ -31,6 +31,20 @@ bool Insert(List* pList, int data)
 		pList->head->data = data;
 	}
 
+	if (pList->dataSize > 1)
+	{
+		Node* pNode = pList->head;
+		for (int i = 0; i < pList->dataSize; ++i)
+		{
+			pNode = pNode->next;
+			if (i + 1 == pList->dataSize)
+			{
+				pNode->next = pList->head;
+			}
+
+		}
+	}
+
 	++(pList->dataSize);
 
 	return true;
@@ -56,7 +70,7 @@ bool Delete(List* pList, int data)
 	}
 	else
 	{
-		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
+		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
 		return false;
 	}
 
@@ -83,7 +97,7 @@ void PrintData(List* pList)
 	}
 	else
 	{
-		printf("鞝�鞛ル悳 雿办澊韯瓣皜 鞐嗢姷雼堧嫟.\n");
+		printf("历厘等 单捞磐啊 绝嚼聪促.\n");
 	}
 
 	return;

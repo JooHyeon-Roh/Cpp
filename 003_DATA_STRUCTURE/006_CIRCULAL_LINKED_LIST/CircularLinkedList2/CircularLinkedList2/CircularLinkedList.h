@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __SINGLY_LINKED_LIST_H__
-#define __SINGLY_LINKED_LIST_H__
+#ifndef __CIRCULAR_LINKED_LIST_H__
+#define __CIRCULAR_LINKED_LIST_H__
 
 typedef struct _Node
 {

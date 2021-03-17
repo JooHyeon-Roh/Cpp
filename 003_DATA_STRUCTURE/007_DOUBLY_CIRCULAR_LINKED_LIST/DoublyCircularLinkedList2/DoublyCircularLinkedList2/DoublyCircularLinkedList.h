@@ -1,11 +1,12 @@
 #pragma once
-#ifndef __SINGLY_LINKED_LIST_H__
-#define __SINGLY_LINKED_LIST_H__
+#ifndef __DOUBLY_CIRCULAR_LINKED_LIST_H__
+#define __DOUBLY_CIRCULAR_LINKED_LIST_H__
 
 typedef struct _Node
 {
 	int data;
 	struct _Node* next;
+	struct _Node* prev;
 }Node;
 
 typedef struct _List
