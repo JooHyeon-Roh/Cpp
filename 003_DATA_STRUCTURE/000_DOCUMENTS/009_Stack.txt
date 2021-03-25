@@ -1,0 +1,51 @@
+1. 정의 및 특징
+	- 한 쪽 끝에서만 자료를 넣고 뺄 수 있는 LIFO(Last In First Out) 형식의 자료 구조.
+	- 스택에 데이터를 push하면 항상 top에 들어가고, pop하면 가장 최근에 푸시한 데이터가 나옴.
+	- 쌓여 있는 접시들로 이해하면 됨.
+	- 맨 위 요소만 접근할 수 있음.
+	- 자료가 없을 때 pop하는 오류를 stack underflow, 스택의 크기 이상의 자료를 push 하려고 할 때의 오류를 stack overflow라고 함.
+	
+2. 추상 자료형(ADT)
+	- 추상 자료형 정의
+	
+		typedef struct _Node
+		{
+			int data;
+			_Node* next;
+		}Node;
+
+		typedef struct _Stack
+		{
+			int dataSize;
+			_Node* head;
+		}Stack;
+
+		void Init(Stack* stack);
+		void Push(Stack* stack, int data);
+
+		int Pop(Stack* stack);
+		int Peek(Stack* stack);
+
+		void Print(Stack* stack);
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 삽입/삭제하는 경우 : Insert/Remove(1) = Big-O Notation = O(1)
+		
+	- 탐색
+		
+4. 장점
+	- 데이터의 삽입과 삭제가 빠르다.
+	- 재귀 알고리즘을 사용하는 경우 스택이 유용하다.
+	- 웹 브라우저 방문기록 (뒤로가기)
+	- 실행 취소 (undo)
+	- 역순 문자열 만들기
+	- 수식의 괄호 검사 (연산자 우선순위 표현을 위한 괄호 검사)
+	- Ex) 올바른 괄호 문자열(VPS, Valid Parenthesis String) 판단하기
+	- 후위 표기법 계산
+
+5. 단점
+	- 탐색을 하려면 원소를 하나하나 꺼내서 옮겨가면서 해야함.
+	- 맨 위의 원소만 접근 가능하다.
+

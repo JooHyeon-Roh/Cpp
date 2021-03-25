@@ -1,0 +1,41 @@
+1. 정의 및 특징
+	- 원형 연결 리스트는 단일 연결 리스트에서 첫노드와 마지막 노드가 연결된 형태입니다.
+	
+2. 추상 자료형(ADT)
+	- 추상 자료형 정의
+	
+		typedef struct _Node
+		{
+			int data;
+			struct _Node* next;
+		}Node;
+
+		typedef struct _List
+		{
+			int dataSize;
+			struct _Node* head;
+		}List;
+		
+		void Init(List* pList);
+		bool Insert(List* pList, int data);
+
+		bool Delete(List* pList, int data);
+
+		void PrintData(List* pList);
+		int Count(List* pList);
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 삽입/삭제하는 경우 : Insert/Remove(n) = Big-O Notation = O(n)
+		
+	- 탐색
+		= Retrieve(n) = Big-O Notation = O(n)
+		
+4. 장점
+	- 한 노드에서 다른 모든 노드로의 접근이 가능하다. (노드의 삽입, 삭제가 단순해진다.)
+
+5. 단점
+	- 연결리스트와 마찬가지로 이미 지나간 데이터는 검색이 불가능하다.
+	- 노드의 삽입, 삭제시 선행 노드의 포인터가 필요하다.
+

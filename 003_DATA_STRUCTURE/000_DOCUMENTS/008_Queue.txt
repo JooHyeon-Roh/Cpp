@@ -1,0 +1,49 @@
+1. 정의 및 특징
+	- FIFO(First-In-First-Out) 구조 : 먼저 넣은 데이터가 먼저 나오는 구조
+	- queue의 사전적 정의는 (무엇을 기다리는 사람, 자동차 등의) 줄. 기다리는 줄에서 먼저 선 사람이 먼저 나갈 수 있는 것처럼, 먼저 들어간 데이터가 먼저 나가는 것에서 붙여진 이름이다.
+	- 데이터가 삽입(push)되는 곳을 front, 제거(pop)되는 곳을 back이라고 한다.
+	
+2. 추상 자료형(ADT)
+	- 추상 자료형 정의
+	
+		typedef struct _Node
+		{
+			int data;
+			_Node* next;
+		}Node;
+
+		typedef struct _Queue
+		{
+			int dataSize;
+			_Node* front;
+		}Queue;
+
+		void Init(Queue* queue);
+		void Push(Queue* queue, int data);
+
+		int Pop(Queue* queue);
+		int Peek(Queue* queue);
+
+		void Print(Queue* queue);
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 삽입/삭제하는 경우 : Insert/Remove(1) = Big-O Notation = O(1)
+		
+	- 탐색
+		= Retrieve(n) = Big-O Notation = O(n)
+		
+4. 장점
+	- 데이터의 삽입/삭제가 빠르다.
+	- 데이터를 입력된 순서대로 처리해야 할 때
+	- BFS (너비 우선 탐색) 구현할 때
+
+5. 단점
+	- queue의 중간에 위치한 데이터로의 접근이 어렵다.
+	- 참고) 배열로 구현했을 때,
+		- 선형 큐 :
+			= Front는 고정, Back을 이동하면서 데이터를 삭제하는 경우: 데이터를 제거했을 때, 나머지 데이터를 한 칸씩 다 옮겨야 함.
+			= 둘 다 이동하면서 삽입, 삭제를 할 경우 : 배열의 끝에 저장되어 있는 상황되면, Back을 더 이상 이동시킬 수 없어서 overflow 발생.
+		- 순환 큐(환형 큐) : 선형 큐를 보완하기 위한 방식. front가 큐의 끝에 닿으면 큐의 맨 앞으로 자료를 보내서 원형으로 연결.
+

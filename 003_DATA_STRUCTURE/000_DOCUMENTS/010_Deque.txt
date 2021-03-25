@@ -1,0 +1,56 @@
+1. 정의 및 특징
+	- Deque(Double Ended Queue), queue와 비슷하지만 queue는 front에서만 삭제하고, end에서 삽입하는데, deque는 front와 end에서 삭제와 삽입이 모두 가능하다.
+	- 연속적인 메모리를 기반으로 하는 '시퀀스 컨테이너'이다. 따라서, 임의 접근 반복자 제공.
+	- 여러 개의 메모리 단위로 데이터를 저장한다. vector는 메모리를 재할당하고 모든 요소를 복사하여야 하는데, deque는 새로운 메모리 단위를 할당하여 요소를 추가한다.또 데이터 요소를 저장하는 여러 개의 메모리 단위를 갖습니다.
+	- 크기가 가변적이다. (선언 후에 변경할 수 있다.)
+	- 중간 요소가 삽입, 삭제될 때, 요소들을 앞/뒤로 밀 수 있으므로 vector보다는 좋은 성능을 갖음. 그래도, 앞/뒤에서의 삽입/삭제 성능은 좋지만 중간에서는 좋지 않다.
+	
+2. 추상 자료형(ADT)
+	- 추상 자료형 정의
+	
+		typedef struct _Node
+		{
+			int data;
+			_Node* prev;
+			_Node* next;
+		}Node;
+
+		typedef struct _Deque
+		{
+			int dataSize;
+			_Node* head;
+			_Node* tail;
+		}Deque;
+
+		void Init(Deque* deque);
+
+		void PushHead(Deque* deque, int data);
+		void PushTail(Deque* deque, int data);
+
+		int PopHead(Deque* deque);
+		int PopTail(Deque* deque);
+
+		void Print(Deque* deque);
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 삽입/삭제하는 경우 : Insert/Remove(1) = Big-O Notation = O(1)
+		
+	- 탐색
+		= Retrieve(n) = Big-O Notation = O(n)
+		
+4. 장점
+	- 데이터의 삽입과 삭제가 빠르다.
+	- 크기가 가변적이다.
+	- 앞, 뒤에서 데이터를 삽입/삭제할 수 있다.
+	- index로 임의 원소 접근이 가능하다.
+	- 새로운 원소 삽입 시에, 메모리를 재할당하고 복사하지 않고 새로운 단위의 메모리 블록을 할당하여 삽입한다.
+	- 앞과 뒤에서 삽입, 삭제가 자주 일어나는 경우
+	- 데이터의 개수가 가변적일 경우
+	- 데이터 검색을 거의 하지 않을 경우 (랜덤 요소에 접근해야할 때)
+
+5. 단점
+	- deque의 중간에서의 삽입과 삭제가 어렵다.
+	- 구현이 어렵다.
+

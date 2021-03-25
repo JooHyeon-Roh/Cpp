@@ -1,0 +1,43 @@
+1. 정의 및 특징
+	- 이중연결리스트는 원형,단일연결리스트와는 다르게 두개의 포인터 링크가 존재합니다.
+	- 현재를 기준으로 전 노드를 가르키는 next 다음 노드를 가르키는 prev 입니다.
+	
+2. 추상 자료형(ADT)
+	- 추상 자료형 정의
+	
+		typedef struct _Node
+		{
+			int data;
+			struct _Node* next;
+			struct _Node* prev;
+		}Node;
+
+		typedef struct _List
+		{
+			int dataSize;
+			struct _Node* head;
+		}List;
+		
+		void Init(List* pList);
+		bool Insert(List* pList, int data);
+
+		bool Delete(List* pList, int data);
+
+		void PrintData(List* pList);
+		int Count(List* pList);
+		
+	
+3. 시간 복잡도(Time Complexity)
+	- 삽입/삭제
+		= 삽입/삭제하는 경우 : Insert/Remove(n) = Big-O Notation = O(n)
+		
+	- 탐색
+		= Retrieve(n) = Big-O Notation = O(n)
+		
+4. 장점
+	- 연결리스트의 단방향성을 보완한 형태.
+	- 연결리스트는 이미 지나간 검색은 안되지만 이중 연결 리스트는 양방향 검색이 가능하다.
+
+5. 단점
+	- 연결리스트에 비해 메모리를 사용하는 공간이 많다.
+
